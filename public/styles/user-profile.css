@@ -1,0 +1,88 @@
+.edit-profile{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.edit-title {
+    margin-left: 1rem;
+    margin-top: 8px;
+    color: #FF4C4C;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.edit-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.edit-item {
+    background-color: #FFDE4D;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 10px 20px 40px#FFB22C;
+    margin: 1rem 6rem 4rem 6rem;
+}
+
+.edit-form > input, .edit-form > label{
+    display: block;
+}
+
+.edit-form > input {
+    border-radius: 8px;
+    width: 70%;
+    background-color: #FFDE4D;
+    border: #FFDE4D;
+}
+
+.edit-form > input:focus {
+    outline: none;
+}
+
+.edit-button {
+    background-color: #FF4C4C!important;
+    width: 80px !important;
+    border-radius: 25px!important;
+    font-family: "Sour Gummy", sans-serif!important;
+    font-style: normal!important;
+    padding: 15px;
+    transition: background-color 0.5s!important;
+    position: relative;
+    left: 45%;
+    margin-top: 3rem;
+    border: #FF4C4C;
+}
+
+.edit-button:hover {
+    background-color: #df3a3a!important;
+}
+
+.logout-button {
+    background-color: #FF4C4C;
+    border-radius: 25px;
+    font-family: "Sour Gummy", sans-serif;
+    font-style: normal;
+    padding: 15px;
+    transition: background-color 0.5s;
+    border: #FF4C4C;
+    margin-top: 2rem;
+}
+
+.logout-button:hover {
+    background-color: #df3a3a;
+}
+
+.edit-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (max-width:500px) {
+    .edit-item {
+        margin: 1rem 1rem 4rem 1rem;
+    }
+}

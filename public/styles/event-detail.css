@@ -1,0 +1,181 @@
+.event-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px , 1fr));
+    gap: 3rem;
+    background-color: #FFDE4D;
+    margin: 2rem 2rem;
+    padding: 5rem;
+    border-radius: 25px;
+    box-shadow: 15px 15px 25px #FFB22C;
+}
+
+.event-img-container {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden; /* Taşmayı engeller */
+    border-radius: 25px;
+    box-shadow: 15px 15px 25px #FFB22C;
+}
+
+.event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Alanı doldur ve taşmayı önle */
+    border-radius: 25px;
+    border: 0.3rem dashed #FF4C4C;
+}
+
+@media screen and (max-width: 500px){
+    .event-grid-container {
+        padding: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(150px , 1fr));
+    }
+}
+
+.event-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #ff4c4c43;
+    box-shadow: 0 0 5px 10px #ff4c4c43;
+    padding: 2rem;
+    border-radius: 25px;
+}
+
+.event-flex > h3 {
+    font-family: "Sour Gummy", sans-serif;
+    font-style: normal;
+}
+
+.event-flex > p {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.event-flex > ul {
+    list-style-type: none;
+    text-align: center;
+    margin-right: 2rem;
+}
+
+.fav-icon {
+    margin-top: 2rem;
+    cursor: pointer;
+    font-size: large;
+}
+
+.fav-flex {
+    display: flex;
+    width: 100%;
+    font-family: "Sour Gummy", sans-serif;
+    font-style: normal;
+}
+
+.fav-flex > p {
+    padding-top: 1rem;
+    padding-right: 1rem;
+}
+
+.price-flex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between!important;
+    align-items: center;
+}
+
+.buy-button {
+    background-color: #FF4C4C;
+    border-radius: 25px;
+    font-family: "Sour Gummy", sans-serif;
+    font-style: normal;
+    border: #FF4C4C;
+    transition: background-color 0.5s;
+    margin-top: 1rem;
+    padding: 9px;
+    white-space: nowrap;
+}
+
+.buy-button:hover {
+    background-color: #df3a3a;
+}
+
+.price {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-shadow: 2px 2px 5px #FF4C4C;
+}
+
+/* payment modal css start here */
+
+.payment-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ff4c4c53;
+    width: 100%;
+    height: 100%;
+}
+
+.payment-modal-content {
+    background-color: #F3FEB8;
+    position: relative;
+    margin: auto;
+    top: 8rem;
+    width: 70%;
+    border-radius: 25px;
+    padding: 3rem;
+}
+
+.payment-modal-content > form > input, .payment-modal-content > form > label{
+    display: block;
+    text-align: center;
+    margin: 9px;
+}
+
+.payment-modal-content > form  > input {
+    border-radius: 8px;
+    width: 50%;
+    background-color: white;
+    border: #FFDE4D;
+    margin: 0 auto;
+}
+
+.payment-modal-content > form  > input:focus {
+    outline: none;
+}
+
+.payment-button {
+    background-color: #FF4C4C;
+    border-radius: 25px;
+    font-family: "Sour Gummy", sans-serif;
+    font-style: normal;
+    border: #FF4C4C;
+    padding: 15px;
+    transition: background-color 0.5s;
+    margin: 2rem auto 0; 
+    width: auto;
+    display: block;
+}
+
+.payment-button:hover {
+    background-color: #df3a3a;
+}
+
+.payment-modal-content > span {
+    float: right;
+    cursor: pointer;
+    font-size: larger;
+    color: #FF4C4C;
+    font-weight: bolder;
+}
+
+.payment-modal-content > span:hover {
+    background-color: #FFDE4D;
+    padding: 1px 5px;
+    border-radius: 5px;
+}

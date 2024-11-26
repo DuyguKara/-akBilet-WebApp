@@ -1,0 +1,47 @@
+.user-title {
+    font-family: "Sour Gummy", sans-serif;
+    font-style: normal;
+    color: #FF4C4C;
+}
+
+.user-profile {
+    margin-right: 5rem;
+    border-radius: 2rem;
+    background-color: #FFDE4D;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.user-profile:hover {
+    background-color: #ffd930;
+    border: 3px solid #ffd930;
+}
+
+.add-event {
+    border-radius: 2rem;
+    background-color: #FFDE4D;
+    cursor: pointer;
+    width: fit-content;
+    display: inline-block;
+    margin-right: 6rem;
+    padding: 8px;
+}
+
+.add-event:hover {
+    background-color: #ffd930;
+    border: 2px solid #ffd930;
+}
+
+@media screen and (max-width:778px) {
+    .add-event {
+        margin-left: 40%;
+    }
+    .user-profile {
+        width: 80%;
+        text-align: center;
+        margin-left: 26px;
+        margin-bottom: 1rem;
+        }
+
+    }

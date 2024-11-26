@@ -1,0 +1,162 @@
+body {
+    background-color: #F3FEB8;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #FFB22C;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo > img {
+    width: 100%;
+    height: 20vh;
+}
+
+.login {
+    margin-right: 5rem;
+    border-radius: 2rem;
+    background-color: #FFDE4D;
+    padding: 1rem 4rem;
+}
+
+.login > button {
+    display: inline;
+    margin-right: 1rem;
+    background-color: #FFDE4D;
+    border: #FFDE4D;
+    font-family: "Sour Gummy", sans-serif;
+    font-style: normal;
+    font-size: larger;
+    border-radius: 25px;
+    transition: background-color 0.5s;
+}
+
+.login img, .login button {
+    vertical-align: middle;
+  }
+
+  .login > button:hover {
+    cursor: pointer;
+    background-color: #F3FEB8;
+  }
+
+  @media screen and (max-width:778px) {
+    .nav-flex{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        width: 70%;
+    }
+    .logo > img {
+        height: 100px;
+    }
+
+    .login {
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+
+    .login > button {
+        font-size: small;
+    }
+  }
+
+  /* navbar css end */
+
+  .carousel-inner img {
+    height: 40vh;
+    object-fit: cover;
+}
+
+/* carousel css end*/
+
+.event-title {
+    margin: 2rem 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* event title css end*/
+
+.event-list-grid-container {
+    display: grid;
+    /* auto fit ile grid yapısını responsive yaptım. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin: 0 2rem;
+}
+
+.grid-item {
+    background-color: #FFDE4D;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.item-img {
+    border: 5px dashed #FF4C4C;
+    border-radius: 10px;
+}
+
+.item-img > img{
+    width: 100%;
+    /* genişliğe göre uzunluk oranı verebilmek için aspect ratio kullandım resmin orana göre sığması için object fit ekledim. */
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.grid-item > .item-flex > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.item-flex > button {
+    margin: auto;
+    border-radius: 8px;
+    background-color: #FF4C4C;
+    border: none;
+    padding: 1rem;
+    color: white;
+}
+
+.item-flex > button:hover {
+    background-color: #d13d3d;
+    border: 2px solid #d13d3d;
+}
+
+/* grid css end */
+
+footer {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
