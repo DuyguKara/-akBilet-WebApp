@@ -18,19 +18,8 @@
 </head>
 <body>
 
-    <nav class="navbar nav-flex">
-        <div class="logo">
-        <img src="./assests/imgs/ÇakBilet.png" alt="logo">
-    </div>
-
-    <div class="login">
-        <img src="./assests/svgs/box-arrow-in-right.svg" alt="login icon">
-        <button>Log In</button>
-        <img src="./assests/svgs/person.svg" alt="sign in icon">
-        <button>Sign In</button>
-    </div>
-    
-    </nav>
+    <!-- navbar section -->
+    <%-include("partials/navbar.ejs")  %>
 
     <main>
     <div class="login-grid-container">
@@ -38,15 +27,17 @@
             <h3 class="login-que login-que1">Don't have a ÇakBilet account?</h3>
             <h3 class="login-que">Create by clicking here!</h3> <br/>
             <h2 class="login-que login-que2">Don't miss the fun, discounted tickets are waiting for you.</h2>
-            <button>Sign Up Now</button>
+            <form action="/sign-in" method="get">
+                <button type="submit">Sign Up Now</button>
+            </form>
         </div>
         <div class="login-item login-item2">
             <h2 class="login-title">Log In!</h2>
-            <form action="/" class="login-form">
+            <form action="/login-info" method="post" class="login-form">
                 <label for="email">Enter Your Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter Your E-Mail"> <img src="./assests/svgs/envelope.svg" alt="mail icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
+                <input type="email" id="email" name="email" placeholder="Enter Your E-Mail" required> <img src="./assests/svgs/envelope.svg" alt="mail icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
                 <label for="pwd">Password:</label>
-                <input type="password" id="pwd" name="pwd" placeholder="Enter Your Password"> <img src="./assests/svgs/file-lock.svg" alt="lock icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
+                <input type="password" id="pwd" name="pwd" placeholder="Enter Your Password" required> <img src="./assests/svgs/file-lock.svg" alt="lock icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
                 <input type="submit" value="Log In" class="submit-button">
             </form>
         </div>

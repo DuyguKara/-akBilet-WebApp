@@ -18,6 +18,8 @@ body {
 .logo > img {
     width: 100%;
     height: 20vh;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 .login {
@@ -27,7 +29,11 @@ body {
     padding: 1rem 4rem;
 }
 
-.login > button {
+.login > form {
+    display: inline-block; /* Formları yan yana hizalar */
+}
+
+.login > form > button {
     display: inline;
     margin-right: 1rem;
     background-color: #FFDE4D;
@@ -37,13 +43,10 @@ body {
     font-size: larger;
     border-radius: 25px;
     transition: background-color 0.5s;
+    vertical-align: middle;
 }
 
-.login img, .login button {
-    vertical-align: middle;
-  }
-
-  .login > button:hover {
+  .login > form > button:hover {
     cursor: pointer;
     background-color: #F3FEB8;
   }
@@ -67,7 +70,7 @@ body {
         margin-bottom: 1rem;
     }
 
-    .login > button {
+    .login > form > button {
         font-size: small;
     }
   }

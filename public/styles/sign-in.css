@@ -54,7 +54,7 @@ h3{
     opacity: 0.5;
 }
 
-.sign-item1 > button {
+.sign-item1 > form > button {
     background-color: #FF4C4C;
     border-radius: 25px;
     font-family: "Sour Gummy", sans-serif;
@@ -67,7 +67,7 @@ h3{
     margin: 1rem auto 0;
 }
 
-.sign-item1 > button:hover {
+.sign-item1 > form > button:hover {
     background-color: #df3a3a;
 }
 

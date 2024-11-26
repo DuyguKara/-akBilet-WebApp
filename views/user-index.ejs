@@ -6,6 +6,7 @@
     <title>ÇakBilet</title>
 
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/user-index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +17,19 @@
 </head>
 <body>
     <nav class="navbar nav-flex">
-            <div class="logo">
+        <div class="logo">
             <img src="./assests/imgs/ÇakBilet.png" alt="logo">
         </div>
 
-        <div class="login">
-            <img src="./assests/svgs/box-arrow-in-right.svg" alt="login icon">
-            <button>Log In</button>
-            <img src="./assests/svgs/person.svg" alt="sign in icon">
-            <button>Sign In</button>
+        <div>
+            <div class="user-profile">
+            <h5 class="user-title">Hoş Geldin <%= userName%></h5>
         </div>
-        
+
+        <div class="add-event">
+            <img src="./assests/svgs/plus-lg.svg" alt="add event">
+        </div>
+        </div>
     </nav>
 
     <div id="carouselCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">

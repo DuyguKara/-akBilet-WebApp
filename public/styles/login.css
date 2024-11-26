@@ -49,7 +49,7 @@
     color: #FF4C4C;
   }
 
-  .login-item1 > button {
+  .login-item1 > form > button {
     background-color: #FF4C4C;
     border-radius: 25px;
     font-family: "Sour Gummy", sans-serif;
@@ -62,7 +62,7 @@
     display: block;
 }
 
-.login-item1 > button:hover {
+.login-item1 > form > button:hover {
     background-color: #df3a3a;
 }
 

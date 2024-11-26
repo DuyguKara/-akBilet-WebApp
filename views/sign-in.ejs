@@ -17,19 +17,8 @@
 </head>
 <body>
 
-    <nav class="navbar nav-flex">
-        <div class="logo">
-        <img src="./assests/imgs/ÇakBilet.png" alt="logo">
-    </div>
-
-    <div class="login">
-        <img src="./assests/svgs/box-arrow-in-right.svg" alt="login icon">
-        <button>Log In</button>
-        <img src="./assests/svgs/person.svg" alt="sign in icon">
-        <button>Sign In</button>
-    </div>
-    
-    </nav>
+    <!-- navbar section -->
+    <%-include("partials/navbar.ejs")  %>
 
     <main>
     <div class="signin-grid-container">
@@ -38,19 +27,21 @@
             <img src="./assests/svgs/cash-coin.svg"> <h2>Best Price</h2> <p>We guarantee you the best price among websites.</p> <hr/> <br/>
             <img src="./assests/svgs/ticket-perforated.svg"> <h2>The Easiest Way to Buy Tickets</h2> <p>Receive your tickets both via SMS and e-mail, without having to print them.</p><hr/> <br/>
             <h3>If you have a ÇakBilet account, you can log in.</h3>
-            <button>Log In</button>
+            <form action="/log-in" method="get">
+                <button type="submit">Log In Now</button>
+            </form>
         </div>
         <div class="sign-in-item sign-item2">
             <h2 class="sign-title">Sign In!</h2>
-            <form action="/" class="sign-form">
+            <form action="/sign-info" method="post" class="sign-form">
                 <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname" placeholder="Enter Your Name"> <img src="./assests/svgs/person-check.svg" alt="user-check icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
+                <input type="text" id="fname" name="fname" placeholder="Enter Your Name" required> <img src="./assests/svgs/person-check.svg" alt="user-check icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
                 <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lname" placeholder="Enter Your Surname"> <img src="./assests/svgs/person-check.svg" alt="user-check icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
+                <input type="text" id="lname" name="lname" placeholder="Enter Your Surname" required> <img src="./assests/svgs/person-check.svg" alt="user-check icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter Your E-Mail"> <img src="./assests/svgs/envelope.svg" alt="mail icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
+                <input type="email" id="email" name="email" placeholder="Enter Your E-Mail" required> <img src="./assests/svgs/envelope.svg" alt="mail icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
                 <label for="pwd">Password:</label>
-                <input type="password" id="pwd" name="pwd" placeholder="Enter Your Password"> <img src="./assests/svgs/file-lock.svg" alt="lock icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
+                <input type="password" id="pwd" name="pwd" placeholder="Enter Your Password" required> <img src="./assests/svgs/file-lock.svg" alt="lock icon" style="opacity: 0.5; float: right; position: relative; bottom: 2rem;"><hr/>
                 <input type="submit" value="Sign In" class="submit-button">
             </form>
         </div>
