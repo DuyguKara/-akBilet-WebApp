@@ -24,6 +24,8 @@ app.use(session({
 }));
 
 app.get("/", (req,res)=>{
+    res.locals.events = events;//user sayfasında eklenen eventlerin ana sayfadada  gözükebilmesi için verileri göndermem gerekiyordu. res locals ile orda oluşan verilere ulaşmayı sağladım.
+    res.locals.showDropdown = false; 
     res.render("index.ejs");
 });
 
@@ -136,12 +138,61 @@ app.post('/add-event', upload.single('image'), (req,res)=>{
     // Kullanıcı adını session'dan alıyorum.
     const userName = req.session.userName || "Guest";
 
-    res.status(200).render("user-index.ejs", { 
+    res.locals.events = events;
+    res.locals.userName = userName;
+    res.locals.showDropdown = true; 
+
+    res.redirect('/user'); // post işlemi double submisson olmasın diye redirect ile başka endpointe yolladım.
+
+});
+
+// bu endpointte de render etmek istediğim asıl sayfayı koydum. böylece aynı sayfadayım ama post tekrarlanmıyor.
+app.get('/user', (req, res) => {
+    res.locals.events = events;
+    const userName = req.session.userName || "Guest";
+    res.locals.showDropdown = true; 
+
+    res.render("user-index.ejs", { 
         userName: userName, 
-        events: events
+        events: events 
     });
 });
 
+app.delete("/events/:id", (req, res)=>{
+    /* req.params, Express.js içinde URL'ye dahil olan dinamik parametreleri tutan bir nesnedir. Örneğin, bir rota tanımlarken, 
+    URL'ye belirli değerler yerleştirildiğinde bu değerler req.params içinde erişilebilir hale gelir.  */
+    const dataId = req.params.id;
+
+    if (events.find(eventObject => eventObject.id === dataId)) {
+        res.sendStatus(204);  // Silme başarılı
+        events = events.filter(eventObject => eventObject.id !== dataId); // ID'ye göre arrayden objeyi de silme
+    } else {
+        res.sendStatus(404);  // Event bulunamadı
+    }
+
+});
+
+app.use(bodyParser.json());
+
+
+/* dizi içinde id eşleşen objeyi buluyorum bu obje varsa eğer 204 kodunu gönderiyorum ve eski değerlere yeni girdileri atıyorum. */
+app.put("/events/:id", upload.single('image'), (req, res) =>{
+    const dataId = req.params.id;
+    const eventData = events.find((eventObject) => eventObject.id === dataId);
+
+    //console.log("Değiştirilecek içeriğin Başlığı: " + eventData.name);
+    //console.log("Yeni içeriğin başlığı: " + req.body.editEventName);
+
+    if(eventData){
+        eventData.name = req.body.editEventName;
+        eventData.img = req.file.filename;
+        eventData.date = req.body.editDate;
+        eventData.location = req.body.editLocation;
+        res.sendStatus(204);
+    }else {
+        res.sendStatus(404);
+    }
+});  
 
 app.listen(port, ()=>{
     console.log(`Server running on ${port} port.`)

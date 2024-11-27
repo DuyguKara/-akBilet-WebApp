@@ -1,0 +1,30 @@
+ <!-- edit Modal -->
+ <div class="edit-event-modal">
+    <div class="edit-event-modal-content">
+        <span class="edit-event-close">&times;</span>
+        <form class="edit-event-form" onsubmit="return validateForm()" enctype= "multipart/form-data">
+            <div class="edit-event-form">
+                <h2>Edit Event!</h2>
+                
+                    <label for="editName">Event Name: </label>
+                    <input type="text" name="editEventName" id="editName" placeholder="Event Name" required/>
+                
+                
+                    <label for="editImg">Image: </label>
+                    <input class="edit-img-input" type="file" accept="image/*" name="image" id="editImg" required/>
+                
+                
+                    <label for="edit-date-input">Choose Date:</label>
+                    <input type="date" id="edit-date-input" name="editDate" required>
+                
+              
+                    <label for="editLocationInfo">Location: </label>
+                    <input type="text" name="editLocation" id="editLocationInfo" placeholder="Location" required/>
+              
+              
+                    <input class="edit-event-button" type="submit" value="Create!" />
+              
+            </div>
+          </form>
+    </div>
+</div>

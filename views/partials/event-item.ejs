@@ -1,30 +1,32 @@
-<% if(locals.events && events.length > 0){ %>
-    <% events.forEach(event => {%>
+<% if (locals.events && events.length > 0) { %>
+    <% events.forEach(event => { %>
 
-<div class="grid-item">
-    <div class="dropdown">
-        <img class="three-dots" src="assests/svgs/three-dots.svg">
-        <div class="dropdown-content">
-            <p id="edit-post">Edit</p> </hr>
-            <p id="delete-post">Delete</p>
+    <div class="grid-item">
+        <% if (locals.showDropdown) { %> <!-- Dropdown'ı sadece 'showDropdown' true olduğunda gösterir -->
+            <div class="dropdown">
+                <img class="three-dots" src="assests/svgs/three-dots.svg">
+                <div class="dropdown-content">
+                    <p id="edit-event" data-id="<%= event.id %>">Edit</p> </hr>
+                    <p id="delete-event" data-id="<%= event.id %>">Delete</p>
+                </div>
+            </div>
+        <% } %>
+        <div class="item-img"><img src="/uploads/<%= event.img %>" alt="singer"></div>
+        <div class="item-flex">
+            <h3><%= event.name %></h3>
+            <ul>
+                <li>
+                    <img src="./assests/svgs/calendar4-event.svg" alt="calendar icon">
+                    Date:&nbsp;<span><%= event.date %></span></li>
+                <li>
+                    <img src="./assests/svgs/geo-alt-fill.svg" alt="location icon">
+                    Location:&nbsp;<span><%= event.location %></span></li>
+            </ul>
+            <button>Buy Ticket Now</button>
         </div>
     </div>
-    <div class="item-img"><img src="/uploads/<%= event.img %>" alt="singer"></div>
-    <div class="item-flex">
-        <h3><%= event.name %></h3>
-        <ul>
-            <li>
-                <img src="./assests/svgs/calendar4-event.svg" alt="calendar icon">
-                Date:&nbsp;<span><%= event.date %></span></li>
-            <li>
-                <img src="./assests/svgs/geo-alt-fill.svg" alt="location icon">
-                Location:&nbsp;<span><%= event.location %></span></li>
-        </ul>
-        <button>Buy Ticket Now</button>
-    </div>
-</div>
 
-<% }); %>
+    <% }); %>
 <% } else { %>
     <p>No events available.</p>
 <% } %>
