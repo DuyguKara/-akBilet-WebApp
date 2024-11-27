@@ -1,5 +1,5 @@
-.modal {
-    display: block;
+.add-event-modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@
     height: 100%;
   }
 
-  .modal-content {
+  .add-event-modal-content {
     background-color: #F3FEB8;
     position: relative;
     margin: auto;
@@ -16,9 +16,10 @@
     width: 70%;
     border-radius: 25px;
     padding: 3rem;
+    border: none;
   }
 
-  .close {
+  .add-event-close {
     float: right;
     cursor: pointer;
     font-size: xx-large;
@@ -26,7 +27,7 @@
     font-weight: bolder;
   }
 
-  .close:hover {
+  .add-event-close:hover {
     color: #ab8e0d;
   }
 
@@ -42,7 +43,7 @@
     padding-bottom: 5px;
   }
 
-  .create-button {
+  .add-event-button {
     margin-top: 15px !important;
     margin-bottom: 15px!important;
     padding: 15px!important;
@@ -58,7 +59,7 @@
     width: 100px!important;
   }
 
-  .create-button:hover {
+  .add-event-button:hover {
     background-color: #df3a3a !important;
   }
 

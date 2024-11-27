@@ -1,0 +1,30 @@
+.dropdown {
+    position: relative;
+  }
+
+  .dropdown > img {
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F3FEB8;
+    border-radius: 8px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content p {
+    color: #181C14;
+    padding: 12px 16px;
+    display: block;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .dropdown-content p:hover {background-color: #FF4C4C;}
+  
+  .dropdown:hover .dropdown-content {display: block;}

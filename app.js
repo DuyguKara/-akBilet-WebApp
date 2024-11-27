@@ -2,15 +2,26 @@ import express from "express";
 import bodyParser from "body-parser";
 import { readFile } from 'node:fs';
 import { writeFile } from 'node:fs';
+import multer from "multer";
+import { v4 as uuidv4 } from 'uuid';
+import session from "express-session";
 
 const port = 3000;
 const app = express();
+let events = [];
 
 //public'in static dosyalar içerdiğini bu ara yazılım ile söylüyorum.
 app.use(express.static("public"));
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// session middleware
+app.use(session({
+    secret: 'secretkey123', // hardcoded olarak yapmak daha iyi ama şimdilik böyle.
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.get("/", (req,res)=>{
     res.render("index.ejs");
@@ -60,7 +71,11 @@ app.post("/sign-info", (req, res)=>{
             return;
         }
         console.log('New User Added Successfully');
-            res.status(200).render("user-index.ejs", {userName: req.body["fname"]});
+
+            // Oturumda kullanıcı bilgisini saklıyorum
+            req.session.userName = req.body["fname"];
+
+            res.status(200).render("user-index.ejs", { userName: req.session.userName });
         }); 
     });
 });
@@ -76,7 +91,7 @@ app.post("/login-info", (req, res)=>{
             return;
         }
 
-        console.log(data);
+        //console.log(data);
 
         let users_info = [];
 
@@ -88,10 +103,42 @@ app.post("/login-info", (req, res)=>{
         const user = users_info.find(user => user["email"] === userEmail && user["pwd"] === userPassword);
 
         if (user) {
-            res.status(200).render("user-index.ejs", {userName: user["fname"]});
+
+            req.session.userName = user["fname"];
+
+            res.status(200).render("user-index.ejs", { userName: req.session.userName });
         }else {
             res.status(400);
         }
+    });
+});
+
+/* form verilerinden dosya alabilmek için multer npm package kullandım.
+indirip import ettikten sonra gelecek dosyaları kaydedilecek hedef path oluşturdum. */
+const upload = multer({ dest: 'public/uploads/' });
+
+app.post('/add-event', upload.single('image'), (req,res)=>{
+    //console.log(req.body);
+    //console.log(req.file);
+
+    const eventData = {
+        id: uuidv4(), // her etkinliğe benzersiz id vermek için uuid kütüphanesi kullandım.
+        name: req.body["eventName"],
+        img: req.file.filename,
+        date: req.body["date"],
+        location: req.body["location"]
+    }
+
+    events.push(eventData);// objeyi events dizisine ittim.
+    //console.log("events: " + events.length);
+    //console.log(eventData.id);
+
+    // Kullanıcı adını session'dan alıyorum.
+    const userName = req.session.userName || "Guest";
+
+    res.status(200).render("user-index.ejs", { 
+        userName: userName, 
+        events: events
     });
 });
 
