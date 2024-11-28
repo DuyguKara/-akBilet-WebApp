@@ -21,6 +21,12 @@
     <!-- navbar section -->
     <%-include("partials/navbar.ejs")  %>
 
+    <% if (locals.errorMessage) { %>
+        <script>
+            alert("<%= errorMessage %>");
+        </script>
+    <% } %>
+
     <main>
     <div class="login-grid-container">
         <div class="login-item login-item1">

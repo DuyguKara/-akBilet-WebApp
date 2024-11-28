@@ -22,8 +22,6 @@ document.querySelector('.edit-event-button').addEventListener('click', function(
     document.querySelector('.edit-event-modal').style.display = 'none';
 });
 
-
-
 $(document).on('click', '#delete-event', function() {
     const dataId = $(this).data('id'); 
         //console.log("Deleting event with ID: " + dataId);
