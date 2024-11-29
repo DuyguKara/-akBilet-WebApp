@@ -139,7 +139,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.item-flex > button {
+.item-flex > form > button {
     margin: auto;
     border-radius: 8px;
     background-color: #FF4C4C;
@@ -148,7 +148,7 @@ body {
     color: white;
 }
 
-.item-flex > button:hover {
+.item-flex > form > button:hover {
     background-color: #d13d3d;
     border: 2px solid #d13d3d;
 }

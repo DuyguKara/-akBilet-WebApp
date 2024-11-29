@@ -1,5 +1,4 @@
 document.querySelector('.logout-button').addEventListener('click', function(){
-    console.log("hey");
     fetch('/', {
         method: 'GET'
     })

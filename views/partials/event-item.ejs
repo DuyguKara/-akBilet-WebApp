@@ -22,7 +22,9 @@
                     <img src="./assests/svgs/geo-alt-fill.svg" alt="location icon">
                     Location:&nbsp;<span><%= event.location %></span></li>
             </ul>
-            <button>Buy Ticket Now</button>
+                <form action="/event-detail/<%= event.id %>" method="get">
+                    <button>Buy Ticket Now</button>
+                </form>
         </div>
     </div>
 

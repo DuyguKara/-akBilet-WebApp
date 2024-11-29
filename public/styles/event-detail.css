@@ -82,7 +82,7 @@
 .price-flex {
     display: flex;
     width: 100%;
-    justify-content: space-between!important;
+    justify-content: center!important;
     align-items: center;
 }
 

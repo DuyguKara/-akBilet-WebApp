@@ -122,8 +122,23 @@ app.post("/login-info", (req, res)=>{
             req.session.userId = user["id"];
             req.session.userName = user["fname"];
 
-            res.status(200).render("user-index.ejs", { userName: req.session.userName });
-        }else {
+            readFile('event-data.json', 'utf8', (err, data) => {
+                if (err) {
+                    console.error('Error reading the event data file:', err);
+                    return res.sendStatus(500);
+                }
+
+                let events = [];
+                if (data) {
+                    events = JSON.parse(data);
+                }
+
+                res.status(200).render("user-index.ejs", { 
+                    userName: req.session.userName, 
+                    events: events
+                });
+            });
+        } else {
             res.status(400).render("log-in.ejs", { errorMessage: "Invalid email or password" });
         }
     });
@@ -142,7 +157,9 @@ app.post('/add-event', upload.single('image'), (req,res)=>{
         name: req.body["eventName"],
         img: req.file.filename,
         date: req.body["date"],
-        location: req.body["location"]
+        location: req.body["location"],
+        content: req.body["event-content"],
+        price: req.body["price"]
     }
 
     readFile('event-data.json', 'utf8', (err, data) => {
@@ -328,6 +345,42 @@ app.post("/edit-profile", (req, res) => {
     });
 });
 
+app.get("/event-detail/:id", (req, res) => {
+    const eventId = req.params.id;
+
+    readFile('event-data.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading the file:', err);
+            return;
+        }
+
+        if (data) {
+            events = JSON.parse(data); // JSON verisini JavaScript objesine döndürdük.
+        }
+
+        // id ile eşleşen etkinliği buluyoruz
+        const event = events.find(event => event.id === eventId);
+
+        if (!event) {
+            // Eğer etkinlik bulunamazsa 404 hata kodu döndürüyoruz
+            return res.status(404).send('Event not found');
+        }
+
+        // Bulunan tek etkinliği render ediyoruz
+        res.render("event-detail.ejs", { event: event });
+    });
+});
+
+app.post("/payment", (req, res)=>{
+    //console.log(req.body);
+
+    if (req.body) {
+        res.status(200).render("user-index.ejs", { successMesage: "Payment Successful" });
+    }else {
+        res.status(400).render("event-detail.ejs", { errorMessage: "Payment Failed" });
+    }
+});
+
 app.listen(port, ()=>{
-    console.log(`Server running on ${port} port.`)
+    console.log(`Server running on ${port} port.`);
 });
