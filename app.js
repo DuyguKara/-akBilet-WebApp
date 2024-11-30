@@ -169,7 +169,7 @@ app.post('/add-event', upload.single('image'), (req,res)=>{
         }
 
     if (data) {
-        events = JSON.parse(data); // json verisini javascript objesine döndürdüm. ve users dizisine koydum. [obj1, obj2...]
+        events = JSON.parse(data); // json verisini javascript objesine döndürdüm. ve events dizisine koydum. [obj1, obj2...]
     }
 
     events.push(eventData);// objeyi events dizisine ittim.
@@ -355,18 +355,14 @@ app.get("/event-detail/:id", (req, res) => {
         }
 
         if (data) {
-            events = JSON.parse(data); // JSON verisini JavaScript objesine döndürdük.
+            events = JSON.parse(data);
         }
-
-        // id ile eşleşen etkinliği buluyoruz
         const event = events.find(event => event.id === eventId);
 
         if (!event) {
-            // Eğer etkinlik bulunamazsa 404 hata kodu döndürüyoruz
             return res.status(404).send('Event not found');
         }
 
-        // Bulunan tek etkinliği render ediyoruz
         res.render("event-detail.ejs", { event: event });
     });
 });

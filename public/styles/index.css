@@ -30,7 +30,7 @@ body {
 }
 
 .login > form {
-    display: inline-block; /* Formları yan yana hizalar */
+    display: inline-block;
 }
 
 .login > form > button {
